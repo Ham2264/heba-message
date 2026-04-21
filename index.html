@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>رسالة لهِبة</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: radial-gradient(circle, #1a1a1a, #000);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* البداية */
+#start {
+  margin-top: 120px;
+}
+
+/* السؤال */
+#question {
+  margin-top: 120px;
+  animation: fadeUp 0.6s ease;
+}
+
+/* الأزرار */
+.option-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  animation: pop 0.5s ease;
+}
+
+.option-btn:hover {
+  background: #ff4d6d;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff4d6d;
+}
+
+/* الرسالة */
+.message-box {
+  margin-top: 90px;
+  padding: 25px;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+  border: 2px solid #ff6f91;
+  background: rgba(255,105,135,0.1);
+  box-shadow: 0 0 25px rgba(255,100,150,0.4);
+  animation: popIn 1s ease;
+}
+
+/* مؤثرات */
+#fx-layer{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.fx{
+  position:absolute;
+  animation: floatUp 5s linear forwards;
+}
+
+/* animations */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes pop{
+  0%{transform:scale(0.5);opacity:0;}
+  100%{transform:scale(1);opacity:1;}
+}
+
+@keyframes popIn{
+  from{transform:scale(0.5);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(100vh) scale(0.5);opacity:0;}
+  20%{opacity:1;}
+  100%{transform:translateY(-10vh) scale(1.2);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div id="start">
+  <h1>هِبة… 💌</h1>
+  <p>عندي لك شي بسيط</p>
+  <button class="option-btn" onclick="startQuiz()">ابدئي</button>
+</div>
+
+<div id="quiz" style="display:none;">
+  <h2 id="question"></h2>
+  <div id="options"></div>
+</div>
+
+<div id="final" style="display:none;">
+  <div class="message-box">
+    <h2>💖 رسالة لك يا هِبة</h2>
+    <p id="text"></p>
+  </div>
+  <div id="fx-layer"></div>
+</div>
+
+<script>
+
+const questions = [
+  {q:"وش أكثر شي يريح هِبة؟",o:["الهدوء 🌙","الضحك 😂","الكلام 💬"]},
+  {q:"لو يومها سيء؟",o:["أحد يسمع 🤍","أحد يضحكها ✨","اهتمام 🌸"]},
+  {q:"وش تحب أكثر؟",o:["الاهتمام 💖","الصدق 🌿","الطيبة ☁️"]},
+  {q:"كيف تتعامل معها؟",o:["بلطف 🤍","بحنان 💖","كأخت 🌸"]},
+  {q:"وصفها؟",o:["لطيفة ✨","مميزة 💫","قريبة ❤️"]}
+];
+
+let iq = 0;
+
+function startQuiz(){
+  document.getElementById("start").style.display="none";
+  document.getElementById("quiz").style.display="block";
+  showQ();
+}
+
+function showQ(){
+  let q = questions[iq];
+  document.getElementById("question").innerHTML = q.q;
+
+  let html="";
+  q.o.forEach(x=>{
+    html+=`<button class="option-btn" onclick="nextQ()">${x}</button>`;
+  });
+
+  document.getElementById("options").innerHTML=html;
+}
+
+function nextQ(){
+  iq++;
+  if(iq>=questions.length){
+    showFinal();
+  }else{
+    showQ();
+  }
+}
+
+function showFinal(){
+  document.getElementById("quiz").style.display="none";
+  document.getElementById("final").style.display="block";
+
+  let msg = `هِبة…
+وجودك مو شي عادي 🤍
+
+أنتِ قريبة لقلبي بطريقة ما تنشرح،
+وأشوفك كأنك أختي 🌸
+
+أهتم فيك بدون ما أحس،
+وأفرح لك من قلبي…
+
+وأتمنى دايم أكون الشي
+اللي يريحك 💫`;
+
+  type(msg);
+  fxStart();
+}
+
+let ti=0;
+function type(msg){
+  if(ti<msg.length){
+    document.getElementById("text").innerHTML+=msg.charAt(ti);
+    ti++;
+    setTimeout(()=>type(msg),35);
+  }
+}
+
+/* 🎉 مؤثرات النهاية */
+function fxStart(){
+  const icons=["💖","🌸","🦋","✨","🌹","💫"];
+
+  setInterval(()=>{
+    let el=document.createElement("div");
+    el.className="fx";
+    el.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+
+    el.style.left=Math.random()*100+"vw";
+    el.style.fontSize=(20+Math.random()*25)+"px";
+    el.style.top="100vh";
+
+    document.getElementById("fx-layer").appendChild(el);
+
+    setTimeout(()=>el.remove(),5000);
+  },180);
+}
+
+</script>
+
+</body>
+</html>
