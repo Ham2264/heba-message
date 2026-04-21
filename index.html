@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>رسالة لهِبة</title>
 
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: radial-gradient(circle, #1a1a1a, #000);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* عناصر عائمة */
+.float {
+  position: absolute;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* الرسالة */
+.message-box {
+  margin-top: 100px;
+  padding: 30px;
+  border-radius: 25px;
+  border: 2px solid #ff6f91;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255, 105, 135, 0.1);
+  box-shadow: 0 0 30px rgba(255, 100, 150, 0.4);
+}
+
+/* أزرار */
+button {
+  padding: 12px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ff4d6d;
+}
+
+/* أنيميشن */
+.fade {
+  animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- البداية -->
+<div id="start" class="fade">
+  <h1>هِبة… 💌</h1>
+  <p>في شي بسيط لك</p>
+  <button onclick="next()">ابدئي</button>
+</div>
+
+<!-- الرسالة -->
+<div id="final" class="message-box fade" style="display:none;">
+  <h2>💖 رسالة لك يا هِبة</h2>
+  <p id="text"></p>
+</div>
+
+<script>
+function next(){
+  document.getElementById("start").style.display = "none";
+  document.getElementById("final").style.display = "block";
+  typeText();
+}
+
+/* كتابة */
+let msg = `هِبة...
+وجودك مو شي عادي 🤍
+
+أنتِ قريبة لقلبي بطريقة غريبة،
+وأشوفك كأنك أختي 🌸
+
+أهتم فيك بدون ما أحس،
+وأفرح لك من قلبي...
+
+وأتمنى أكون دايم الشي
+اللي يريحك 💫`;
+
+let i = 0;
+function typeText(){
+  if(i < msg.length){
+    document.getElementById("text").innerHTML += msg.charAt(i);
+    i++;
+    setTimeout(typeText, 40);
+  }
+}
+
+/* عناصر عائمة */
+function createElement(symbol, size){
+  let el = document.createElement("div");
+  el.classList.add("float");
+  el.innerHTML = symbol;
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.fontSize = size + "px";
+  el.style.animationDuration = (Math.random()*3 + 4) + "s";
+  document.body.appendChild(el);
+
+  setTimeout(()=>{el.remove();},6000);
+}
+
+/* تشغيل التأثيرات */
+setInterval(()=>{
+  createElement("❤", 20);   // قلوب
+  createElement("🌸", 18);   // ورود
+  createElement("✨", 14);   // لمعة
+  createElement("🦋", 22);   // فراشات
+}, 400);
+
+</script>
+
+</body>
+</html>
