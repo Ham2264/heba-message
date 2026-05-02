@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>رسالة لغلا</title>
+<title>رسالة لنجلاء</title>
 
 <style>
 body {
@@ -14,7 +14,6 @@ body {
   overflow: hidden;
 }
 
-/* البداية */
 #start { margin-top: 120px; }
 
 button {
@@ -26,10 +25,8 @@ button {
   cursor: pointer;
 }
 
-/* السؤال */
-#question { margin-top: 120px; }
+#q { margin-top: 120px; }
 
-/* أزرار */
 .option-btn {
   display: block;
   margin: 10px auto;
@@ -39,13 +36,18 @@ button {
   background: rgba(255,255,255,0.1);
   color: white;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-/* الرسالة */
+.option-btn:hover {
+  background: #ff4d6d;
+  transform: scale(1.1);
+}
+
 .message-box {
-  margin-top: 90px;
+  margin-top: 80px;
   padding: 25px;
-  width: 65%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 25px;
@@ -54,7 +56,7 @@ button {
   box-shadow: 0 0 25px rgba(255,100,150,0.4);
 }
 
-/* المؤثرات */
+/* مؤثرات */
 #fx {
   position: fixed;
   top: 0;
@@ -62,15 +64,14 @@ button {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  overflow: hidden;
 }
 
 .fx-item {
   position: absolute;
-  animation: fall 5s linear forwards;
+  animation: floatUp 5s linear forwards;
 }
 
-@keyframes fall {
+@keyframes floatUp {
   0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
   20% { opacity: 1; }
   100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
@@ -81,7 +82,7 @@ button {
 <body>
 
 <div id="start">
-  <h1>غلا… 💌</h1>
+  <h1>نجلاء… 💌</h1>
   <p>عندي لك شي بسيط</p>
   <button onclick="start()">ابدئي</button>
 </div>
@@ -93,16 +94,13 @@ button {
 
 <div id="final" style="display:none;">
   <div class="message-box">
-    <h2>💖 رسالة لك يا غلا</h2>
+    <h2>💖 رسالة لك يا نجلاء</h2>
     <p id="msg"></p>
   </div>
-
   <div id="fx"></div>
 </div>
 
 <script>
-
-let i=0;
 
 function start(){
   document.getElementById("start").style.display="none";
@@ -111,7 +109,7 @@ function start(){
 }
 
 const qs=[
-  {q:"وش يريح غلا؟",o:["هدوء 🌙","ضحك 😂","كلام 💬"]},
+  {q:"وش يريح نجلاء؟",o:["هدوء 🌙","ضحك 😂","كلام 💬"]},
   {q:"لو زعلت؟",o:["أحد يسمع 🤍","أحد يضحكها ✨","اهتمام 🌸"]},
   {q:"وش تحب؟",o:["الاهتمام 💖","الصدق 🌿","الطيبة ☁️"]}
 ];
@@ -140,19 +138,52 @@ function final(){
   document.getElementById("quiz").style.display="none";
   document.getElementById("final").style.display="block";
 
-  let text=`غلا…
-وجودك مو شي عادي 🤍
+  let text = `نجلاء…
 
-أنتِ قريبة لقلبي كأنك أختي 🌸
-وأهتم فيك بدون ما أحس…
+يمكن ما أقولها كثير،
+بس وجودك بالنسبة لي مو شي عادي 🤍
 
-وأتمنى دايم أكون الشي
-اللي يريحك 💫`;
+أنتِ شخص قريب جدًا لقلبي،
+وأشوفك كأنك أختي اللي ما جابتني الدنيا لها 🌸
+
+أهتم فيك بدون ما أحس،
+وأفرح لك من قلبي…
+
+وأزعل لو شفتك مو بخير حتى لو ما قلتي شيء
+
+وجودك يفرق معي أكثر مما تتخيلين 💫
+
+وأتمنى دايم أكون الشخص
+اللي يريحك… حتى لو شوي 💖
+
+
+وفي نفس الوقت…
+
+في ناس تمر مرور عادي في حياتنا،
+وأنتِ لا…
+
+أنتِ من الناس اللي تترك أثر بدون ما تحاول ✨
+
+كلامك يغير يومي،
+ووجودك يعطيني راحة غريبة ما أقدر أوصفها
+
+أحسك قريبة لي بشكل مختلف،
+كأنك جزء من يومي حتى لو ما كنا نتكلم كثير 🤍
+
+وأتمنى من قلبي
+إني أكون الشخص اللي يخفف عنك،
+واللي دايم تلقينه جنبك وقت ما تحتاجين 💫
+
+
+بس حبيت أقول لك…
+
+أنتِ مو شخص عادي بالنسبة لي أبد 🤍`;
 
   type(text);
-  startFX();
+  fxStart();
 }
 
+let i=0;
 function type(t){
   if(i<t.length){
     document.getElementById("msg").innerHTML+=t.charAt(i);
@@ -162,8 +193,7 @@ function type(t){
 }
 
 /* المؤثرات */
-function startFX(){
-
+function fxStart(){
   const fx=document.getElementById("fx");
   const items=["💖","🌸","🦋","✨","🌹","💫"];
 
