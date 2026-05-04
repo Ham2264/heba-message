@@ -2,7 +2,7 @@
 <html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>رسالة لنجلاء</title>
+<title>رسالة لهِبة</title>
 
 <style>
 body {
@@ -14,6 +14,7 @@ body {
   overflow: hidden;
 }
 
+/* البداية */
 #start { margin-top: 120px; }
 
 button {
@@ -25,8 +26,10 @@ button {
   cursor: pointer;
 }
 
-#q { margin-top: 120px; }
+/* السؤال */
+#question { margin-top: 120px; }
 
+/* أزرار */
 .option-btn {
   display: block;
   margin: 10px auto;
@@ -36,18 +39,13 @@ button {
   background: rgba(255,255,255,0.1);
   color: white;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.option-btn:hover {
-  background: #ff4d6d;
-  transform: scale(1.1);
-}
-
+/* الرسالة */
 .message-box {
-  margin-top: 80px;
+  margin-top: 90px;
   padding: 25px;
-  width: 70%;
+  width: 65%;
   margin-left: auto;
   margin-right: auto;
   border-radius: 25px;
@@ -56,7 +54,7 @@ button {
   box-shadow: 0 0 25px rgba(255,100,150,0.4);
 }
 
-/* مؤثرات */
+/* 🔥 مهم جدًا: طبقة المؤثرات */
 #fx {
   position: fixed;
   top: 0;
@@ -64,17 +62,26 @@ button {
   width: 100%;
   height: 100%;
   pointer-events: none;
+  overflow: hidden;
 }
 
+/* العناصر */
 .fx-item {
   position: absolute;
-  animation: floatUp 5s linear forwards;
+  animation: fall 5s linear forwards;
 }
 
-@keyframes floatUp {
-  0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+/* سقوط ناعم */
+@keyframes fall {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
   20% { opacity: 1; }
-  100% { transform: translateY(-10vh) scale(1.3); opacity: 0; }
+  100% {
+    transform: translateY(-10vh) scale(1.3);
+    opacity: 0;
+  }
 }
 </style>
 </head>
@@ -82,7 +89,7 @@ button {
 <body>
 
 <div id="start">
-  <h1>نجلاء… 💌</h1>
+  <h1>هِبة… 💌</h1>
   <p>عندي لك شي بسيط</p>
   <button onclick="start()">ابدئي</button>
 </div>
@@ -94,13 +101,17 @@ button {
 
 <div id="final" style="display:none;">
   <div class="message-box">
-    <h2>💖 رسالة لك يا نجلاء</h2>
+    <h2>💖 رسالة لك يا هِبة</h2>
     <p id="msg"></p>
   </div>
+
+  <!-- 🔥 المؤثرات هنا -->
   <div id="fx"></div>
 </div>
 
 <script>
+
+let i=0;
 
 function start(){
   document.getElementById("start").style.display="none";
@@ -109,9 +120,9 @@ function start(){
 }
 
 const qs=[
-  {q:"وش يريح نجلاء؟",o:["هدوء 🌙","ضحك 😂","كلام 💬"]},
+  {q:"وش يريح هِبة؟",o:["هدوء 🌙","ضحك 😂","كلام 💬"]},
   {q:"لو زعلت؟",o:["أحد يسمع 🤍","أحد يضحكها ✨","اهتمام 🌸"]},
-  {q:"وش تحب؟",o:["الاهتمام 💖","الصدق 🌿","الطيبة ☁️"]}
+  {q:"تحب؟",o:["الاهتمام 💖","الصدق 🌿","الطيبة ☁️"]}
 ];
 
 let c=0;
@@ -138,52 +149,20 @@ function final(){
   document.getElementById("quiz").style.display="none";
   document.getElementById("final").style.display="block";
 
-  let text = `نجلاء…
+  let text=`هِبة…
+وجودك مو شي عادي 🤍
 
-يمكن ما أقولها كثير،
-بس وجودك بالنسبة لي مو شي عادي 🤍
+أنتِ قريبة لقلبي كأنك أختي 🌸
+وأهتم فيك بدون ما أحس…
 
-أنتِ شخص قريب جدًا لقلبي،
-وأشوفك كأنك أختي اللي ما جابتني الدنيا لها 🌸
-
-أهتم فيك بدون ما أحس،
-وأفرح لك من قلبي…
-
-وأزعل لو شفتك مو بخير حتى لو ما قلتي شيء
-
-وجودك يفرق معي أكثر مما تتخيلين 💫
-
-وأتمنى دايم أكون الشخص
-اللي يريحك… حتى لو شوي 💖
-
-
-وفي نفس الوقت…
-
-في ناس تمر مرور عادي في حياتنا،
-وأنتِ لا…
-
-أنتِ من الناس اللي تترك أثر بدون ما تحاول ✨
-
-كلامك يغير يومي،
-ووجودك يعطيني راحة غريبة ما أقدر أوصفها
-
-أحسك قريبة لي بشكل مختلف،
-كأنك جزء من يومي حتى لو ما كنا نتكلم كثير 🤍
-
-وأتمنى من قلبي
-إني أكون الشخص اللي يخفف عنك،
-واللي دايم تلقينه جنبك وقت ما تحتاجين 💫
-
-
-بس حبيت أقول لك…
-
-أنتِ مو شخص عادي بالنسبة لي أبد 🤍`;
+وأتمنى دايم أكون الشي
+اللي يريحك 💫`;
 
   type(text);
-  fxStart();
+  startFX(); // 🔥 تشغيل المؤثرات
 }
 
-let i=0;
+/* كتابة */
 function type(t){
   if(i<t.length){
     document.getElementById("msg").innerHTML+=t.charAt(i);
@@ -192,8 +171,9 @@ function type(t){
   }
 }
 
-/* المؤثرات */
-function fxStart(){
+/* 🔥 المؤثرات المضمونة */
+function startFX(){
+
   const fx=document.getElementById("fx");
   const items=["💖","🌸","🦋","✨","🌹","💫"];
 
@@ -212,6 +192,9 @@ function fxStart(){
 }
 
 </script>
+
+</body>
+</html>>
 
 </body>
 </html>
