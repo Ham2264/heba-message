@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>🎀 مفاجأة لإسراء 🎀</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#ffd6f6,#ffeefe,#f7d8ff);
+overflow:hidden;
+height:100vh;
+color:#ff4f9d;
+}
+
+/* الخلفية */
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+overflow:hidden;
+z-index:-1;
+}
+
+/* العناصر الطايرة */
+.float{
+position:absolute;
+animation:floatUp linear infinite;
+opacity:.9;
+filter:drop-shadow(0 0 10px rgba(255,255,255,.6));
+}
+
+@keyframes floatUp{
+0%{
+transform:translateY(100vh) scale(.6) rotate(0deg);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-20vh) scale(1.2) rotate(360deg);
+opacity:0;
+}
+}
+
+/* الصفحات */
+.screen{
+display:none;
+height:100vh;
+padding:30px 20px;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+animation:fade .7s;
+}
+
+.active{
+display:flex;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* الكارد */
+.card{
+background:rgba(255,255,255,.25);
+backdrop-filter:blur(12px);
+padding:28px;
+border-radius:35px;
+width:100%;
+max-width:360px;
+box-shadow:0 0 30px rgba(255,255,255,.4);
+border:2px solid rgba(255,255,255,.35);
+animation:floatCard 3s ease-in-out infinite;
+}
+
+@keyframes floatCard{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-7px);
+}
+}
+
+/* العنوان */
+.title{
+font-size:32px;
+margin-bottom:10px;
+color:#ff3d95;
+text-shadow:0 0 12px rgba(255,255,255,.9);
+}
+
+/* النص */
+.desc{
+font-size:16px;
+line-height:2;
+color:#ff5ca8;
+}
+
+/* الأزرار */
+.btn{
+margin-top:18px;
+border:none;
+padding:14px 22px;
+border-radius:999px;
+background:#ff69b4;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 0 18px rgba(255,105,180,.5);
+}
+
+.btn:hover{
+transform:scale(1.08);
+background:#ff3c9d;
+}
+
+/* الخيارات */
+.option{
+width:100%;
+margin-top:12px;
+padding:14px;
+border-radius:20px;
+border:none;
+background:rgba(255,255,255,.35);
+color:#ff4f9d;
+font-size:15px;
+cursor:pointer;
+transition:.25s;
+font-weight:bold;
+}
+
+.option:hover{
+transform:scale(1.04);
+background:white;
+}
+
+/* صور الأنمي */
+.anime{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:50%;
+margin-bottom:15px;
+box-shadow:0 0 25px rgba(255,255,255,.7);
+border:4px solid rgba(255,255,255,.7);
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-8px);
+}
+}
+
+/* رسالة النهاية */
+.final-box{
+background:rgba(255,255,255,.28);
+padding:28px;
+border-radius:35px;
+width:100%;
+max-width:370px;
+backdrop-filter:blur(12px);
+box-shadow:0 0 35px rgba(255,255,255,.5);
+border:2px solid rgba(255,255,255,.4);
+animation:pop .8s;
+}
+
+@keyframes pop{
+from{
+transform:scale(.7);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+#message{
+line-height:2.2;
+font-size:16px;
+white-space:pre-line;
+color:#ff4f9d;
+font-weight:bold;
+}
+
+.glow{
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px #fff;
+}
+to{
+text-shadow:0 0 25px #ff7edb;
+}
+}
+
+.name{
+font-size:22px;
+margin-bottom:10px;
+color:#ff2f92;
+font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+
+<!-- الخلفية -->
+<div class="bg" id="bg"></div>
+
+<!-- البداية -->
+<section class="screen active" id="start">
+
+<div class="card">
+
+<img class="anime"
+src="https://i.pinimg.com/736x/fb/e0/20/fbe020db82d1e2c56b1ef6a53d3f6c6d.jpg">
+
+<div class="name">إسراء 🎀</div>
+
+<h1 class="title glow">
+مفاجأة عيد صغيرة
+</h1>
+
+<p class="desc">
+قبل لا يبدأ العيد...
+في شيء بسيط جدًا
+بس طالع من القلب 🤍
+</p>
+
+<button class="btn" onclick="nextScreen('q1')">
+🎁 افتحي المفاجأة
+</button>
+
+</div>
+
+</section>
+
+<!-- سؤال 1 -->
+<section class="screen" id="q1">
+
+<div class="card">
+
+<img class="anime"
+src="https://i.pinimg.com/736x/d0/6e/f8/d06ef8d4d90f81b6a0dd6cb6806b631f.jpg">
+
+<h2 class="title">
+لو العيد كان شعور؟
+</h2>
+
+<button class="option" onclick="nextScreen('q2')">
+🌸 راحة وهدوء
+</button>
+
+<button class="option" onclick="nextScreen('q2')">
+✨ ضحك وفرحة
+</button>
+
+<button class="option" onclick="nextScreen('q2')">
+🎀 ناس قريبة
+</button>
+
+</div>
+
+</section>
+
+<!-- سؤال 2 -->
+<section class="screen" id="q2">
+
+<div class="card">
+
+<img class="anime"
+src="https://i.pinimg.com/736x/89/6c/ea/896cea78d49c8cbf5df1b3b2f03bfb67.jpg">
+
+<h2 class="title">
+وش أكثر شي يسعدك؟
+</h2>
+
+<button class="option" onclick="nextScreen('q3')">
+💖 الاهتمام
+</button>
+
+<button class="option" onclick="nextScreen('q3')">
+🌷 الكلام الحلو
+</button>
+
+<button class="option" onclick="nextScreen('q3')">
+🦋 شخص يهتم فعلًا
+</button>
+
+</div>
+
+</section>
+
+<!-- سؤال 3 -->
+<section class="screen" id="q3">
+
+<div class="card">
+
+<img class="anime"
+src="https://i.pinimg.com/736x/58/ef/f7/58eff7f91e4ef0fc52d9cb07eb0c4c71.jpg">
+
+<h2 class="title">
+جاهزة للمفاجأة الأخيرة يا إسراء؟
+</h2>
+
+<button class="btn" onclick="showFinal()">
+🎀 أكيد
+</button>
+
+</div>
+
+</section>
+
+<!-- النهاية -->
+<section class="screen" id="final">
+
+<div class="final-box">
+
+<img class="anime"
+src="https://i.pinimg.com/736x/3d/57/2b/3d572be4462f81ff5e51c7d1fd5e90c4.jpg">
+
+<h1 class="title glow">
+عيدك أحلى يا إسراء 🎀
+</h1>
+
+<p id="message"></p>
+
+</div>
+
+</section>
+
+<script>
+
+/* انتقال */
+function nextScreen(id){
+
+document.querySelectorAll('.screen')
+.forEach(s=>s.classList.remove('active'));
+
+document.getElementById(id)
+.classList.add('active');
+
+}
+
+/* النهاية */
+function showFinal(){
+
+nextScreen('final');
+
+startEffects();
+
+let text=`كل عام وأنتِ ألطف صدفة
+دخلت حياتي يا إسراء 🤍
+
+قبل لا يبدأ العيد…
+حبيت أقول لك
+إن وجودك بالنسبة لي مو شيء عادي أبد ✨
+
+أنتِ من الناس
+اللي يخلون الأيام ألطف بدون ما يحسون 🌸
+
+وجودك يريح،
+وكلامك يخلّي اليوم أخف وأحلى 🦋
+
+وأتمنى العيد هذا
+يدخلك فرحة تشبه قلبك الجميل،
+وضحكة ما تغيب أبد 💖
+
+بس حبيت أقول لك…
+
+أنتِ شخص لطيف بطريقة
+صعب تنوصف فعلًا 🎀✨`;
+
+typeText(text);
+
+}
+
+/* كتابة */
+let i=0;
+
+function typeText(text){
+
+if(i < text.length){
+
+document.getElementById("message")
+.innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(()=>{
+typeText(text)
+},32);
+
+}
+
+}
+
+/* مؤثرات */
+function startEffects(){
+
+const bg=document.getElementById('bg');
+
+const items=[
+'🌸','🦋','✨','🎀','🌷','⭐','💫'
+];
+
+setInterval(()=>{
+
+let el=document.createElement('div');
+
+el.className='float';
+
+el.innerHTML=
+items[Math.floor(Math.random()*items.length)];
+
+el.style.left=Math.random()*100+'vw';
+
+el.style.fontSize=
+(18 + Math.random()*28)+'px';
+
+el.style.animationDuration=
+(4 + Math.random()*4)+'s';
+
+bg.appendChild(el);
+
+setTimeout(()=>{
+el.remove();
+},8000);
+
+},150);
+
+}
+
+startEffects();
+
+</script>
+
+</body>
+</html>
