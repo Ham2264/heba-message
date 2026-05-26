@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>🎀 مفاجأة لإسراء 🎀</title>
+<title>🎀 مفاجأة العيد 🎀</title>
 
 <style>
 
@@ -17,13 +17,13 @@ font-family:'Cairo',sans-serif;
 }
 
 body{
-background:linear-gradient(180deg,#ffd6f6,#ffeefe,#f7d8ff);
+background: linear-gradient(180deg,#ffd6f6,#ffeefe,#f7d8ff);
 overflow:hidden;
 height:100vh;
-color:#ff4f9d;
+color:#fff;
 }
 
-/* الخلفية */
+/* خلفية */
 .bg{
 position:fixed;
 width:100%;
@@ -37,9 +37,8 @@ z-index:-1;
 /* العناصر الطايرة */
 .float{
 position:absolute;
-animation:floatUp linear infinite;
+animation: floatUp linear infinite;
 opacity:.9;
-filter:drop-shadow(0 0 10px rgba(255,255,255,.6));
 }
 
 @keyframes floatUp{
@@ -83,41 +82,30 @@ transform:translateY(0);
 }
 }
 
-/* الكارد */
-.card{
-background:rgba(255,255,255,.25);
-backdrop-filter:blur(12px);
-padding:28px;
-border-radius:35px;
-width:100%;
-max-width:360px;
-box-shadow:0 0 30px rgba(255,255,255,.4);
-border:2px solid rgba(255,255,255,.35);
-animation:floatCard 3s ease-in-out infinite;
-}
-
-@keyframes floatCard{
-0%,100%{
-transform:translateY(0);
-}
-50%{
-transform:translateY(-7px);
-}
-}
-
 /* العنوان */
 .title{
-font-size:32px;
+font-size:34px;
 margin-bottom:10px;
-color:#ff3d95;
-text-shadow:0 0 12px rgba(255,255,255,.9);
+text-shadow:0 0 15px rgba(255,255,255,.6);
 }
 
 /* النص */
 .desc{
 font-size:16px;
-line-height:2;
-color:#ff5ca8;
+line-height:1.9;
+max-width:330px;
+}
+
+/* الكارد */
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:30px;
+width:100%;
+max-width:360px;
+box-shadow:0 0 25px rgba(255,255,255,.3);
+border:2px solid rgba(255,255,255,.2);
 }
 
 /* الأزرار */
@@ -126,17 +114,17 @@ margin-top:18px;
 border:none;
 padding:14px 22px;
 border-radius:999px;
-background:#ff69b4;
+background:#ff73c5;
 color:white;
 font-size:16px;
 cursor:pointer;
 transition:.3s;
-box-shadow:0 0 18px rgba(255,105,180,.5);
+box-shadow:0 0 15px rgba(255,105,180,.5);
 }
 
 .btn:hover{
 transform:scale(1.08);
-background:#ff3c9d;
+background:#ff4db8;
 }
 
 /* الخيارات */
@@ -146,28 +134,22 @@ margin-top:12px;
 padding:14px;
 border-radius:20px;
 border:none;
-background:rgba(255,255,255,.35);
-color:#ff4f9d;
+background:rgba(255,255,255,.18);
+color:white;
 font-size:15px;
 cursor:pointer;
 transition:.25s;
-font-weight:bold;
 }
 
 .option:hover{
 transform:scale(1.04);
-background:white;
+background:rgba(255,255,255,.3);
 }
 
-/* صور الأنمي */
-.anime{
-width:120px;
-height:120px;
-object-fit:cover;
-border-radius:50%;
-margin-bottom:15px;
-box-shadow:0 0 25px rgba(255,255,255,.7);
-border:4px solid rgba(255,255,255,.7);
+/* الشخصيات */
+.character{
+font-size:48px;
+margin-bottom:10px;
 animation:bounce 2s infinite;
 }
 
@@ -176,42 +158,29 @@ animation:bounce 2s infinite;
 transform:translateY(0);
 }
 50%{
-transform:translateY(-8px);
+transform:translateY(-10px);
 }
 }
 
 /* رسالة النهاية */
 .final-box{
-background:rgba(255,255,255,.28);
+background:rgba(255,255,255,.18);
 padding:28px;
 border-radius:35px;
 width:100%;
 max-width:370px;
 backdrop-filter:blur(12px);
-box-shadow:0 0 35px rgba(255,255,255,.5);
-border:2px solid rgba(255,255,255,.4);
-animation:pop .8s;
-}
-
-@keyframes pop{
-from{
-transform:scale(.7);
-opacity:0;
-}
-to{
-transform:scale(1);
-opacity:1;
-}
+box-shadow:0 0 30px rgba(255,255,255,.4);
+border:2px solid rgba(255,255,255,.25);
 }
 
 #message{
-line-height:2.2;
+line-height:2;
 font-size:16px;
 white-space:pre-line;
-color:#ff4f9d;
-font-weight:bold;
 }
 
+/* glow */
 .glow{
 animation:glow 2s infinite alternate;
 }
@@ -223,13 +192,6 @@ text-shadow:0 0 10px #fff;
 to{
 text-shadow:0 0 25px #ff7edb;
 }
-}
-
-.name{
-font-size:22px;
-margin-bottom:10px;
-color:#ff2f92;
-font-weight:bold;
 }
 
 </style>
@@ -244,17 +206,14 @@ font-weight:bold;
 
 <div class="card">
 
-<img class="anime"
-src="https://i.pinimg.com/736x/fb/e0/20/fbe020db82d1e2c56b1ef6a53d3f6c6d.jpg">
-
-<div class="name">إسراء 🎀</div>
+<div class="character">🎀🧸🌸</div>
 
 <h1 class="title glow">
 مفاجأة عيد صغيرة
 </h1>
 
 <p class="desc">
-قبل لا يبدأ العيد...
+قبل ما يخلص العيد...
 في شيء بسيط جدًا
 بس طالع من القلب 🤍
 </p>
@@ -272,8 +231,7 @@ src="https://i.pinimg.com/736x/fb/e0/20/fbe020db82d1e2c56b1ef6a53d3f6c6d.jpg">
 
 <div class="card">
 
-<img class="anime"
-src="https://i.pinimg.com/736x/d0/6e/f8/d06ef8d4d90f81b6a0dd6cb6806b631f.jpg">
+<div class="character">🎀 Hello Kitty 🎀</div>
 
 <h2 class="title">
 لو العيد كان شعور؟
@@ -288,7 +246,7 @@ src="https://i.pinimg.com/736x/d0/6e/f8/d06ef8d4d90f81b6a0dd6cb6806b631f.jpg">
 </button>
 
 <button class="option" onclick="nextScreen('q2')">
-🎀 ناس قريبة
+🧸 ناس قريبة
 </button>
 
 </div>
@@ -300,8 +258,7 @@ src="https://i.pinimg.com/736x/d0/6e/f8/d06ef8d4d90f81b6a0dd6cb6806b631f.jpg">
 
 <div class="card">
 
-<img class="anime"
-src="https://i.pinimg.com/736x/89/6c/ea/896cea78d49c8cbf5df1b3b2f03bfb67.jpg">
+<div class="character">🩷 Kuromi 🩷</div>
 
 <h2 class="title">
 وش أكثر شي يسعدك؟
@@ -328,11 +285,10 @@ src="https://i.pinimg.com/736x/89/6c/ea/896cea78d49c8cbf5df1b3b2f03bfb67.jpg">
 
 <div class="card">
 
-<img class="anime"
-src="https://i.pinimg.com/736x/58/ef/f7/58eff7f91e4ef0fc52d9cb07eb0c4c71.jpg">
+<div class="character">🐰 My Melody 🐰</div>
 
 <h2 class="title">
-جاهزة للمفاجأة الأخيرة يا إسراء؟
+جاهزة للمفاجأة الأخيرة؟
 </h2>
 
 <button class="btn" onclick="showFinal()">
@@ -348,11 +304,12 @@ src="https://i.pinimg.com/736x/58/ef/f7/58eff7f91e4ef0fc52d9cb07eb0c4c71.jpg">
 
 <div class="final-box">
 
-<img class="anime"
-src="https://i.pinimg.com/736x/3d/57/2b/3d572be4462f81ff5e51c7d1fd5e90c4.jpg">
+<div class="character">
+🌸💖🧸✨
+</div>
 
 <h1 class="title glow">
-عيدك أحلى يا إسراء 🎀
+عيدك أحلى 🎀
 </h1>
 
 <p id="message"></p>
@@ -381,27 +338,21 @@ nextScreen('final');
 
 startEffects();
 
-let text=`كل عام وأنتِ ألطف صدفة
-دخلت حياتي يا إسراء 🤍
+let text=`كل عام وأنتِ ألطف شخص ممكن يدخل حياة أحد 🤍
 
-قبل لا يبدأ العيد…
-حبيت أقول لك
-إن وجودك بالنسبة لي مو شيء عادي أبد ✨
+وجودك لحاله يغيّر الجو،
+ويخلي كل شيء ألطف بدون ما تحسين ✨
 
-أنتِ من الناس
-اللي يخلون الأيام ألطف بدون ما يحسون 🌸
+أتمنى العيد هذا
+يدخلك فرحة تشبه قلبك الجميل 🌸
 
-وجودك يريح،
-وكلامك يخلّي اليوم أخف وأحلى 🦋
-
-وأتمنى العيد هذا
-يدخلك فرحة تشبه قلبك الجميل،
-وضحكة ما تغيب أبد 💖
+وتضحكين كثير،
+وترتاحين أكثر،
+وتعيشين أيام حلوة قدّك 💖
 
 بس حبيت أقول لك…
 
-أنتِ شخص لطيف بطريقة
-صعب تنوصف فعلًا 🎀✨`;
+وجودك يفرق فعلًا 🎀`;
 
 typeText(text);
 
@@ -421,7 +372,7 @@ i++;
 
 setTimeout(()=>{
 typeText(text)
-},32);
+},35);
 
 }
 
@@ -433,7 +384,7 @@ function startEffects(){
 const bg=document.getElementById('bg');
 
 const items=[
-'🌸','🦋','✨','🎀','🌷','⭐','💫'
+'💖','🌸','🦋','✨','🎀','🌷','🧸','🐰'
 ];
 
 setInterval(()=>{
@@ -459,13 +410,14 @@ setTimeout(()=>{
 el.remove();
 },8000);
 
-},150);
+},180);
 
 }
 
+/* مؤثرات البداية */
 startEffects();
 
 </script>
 
 </body>
-</html>
+  </html>
