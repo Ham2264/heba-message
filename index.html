@@ -85,7 +85,7 @@ transform:translateY(0);
 
 /* الكارد */
 .card{
-background:rgba(255,255,255,.25);
+background:rgba(255,255,255,.28);
 backdrop-filter:blur(12px);
 padding:28px;
 border-radius:35px;
@@ -109,7 +109,7 @@ transform:translateY(-7px);
 .title{
 font-size:32px;
 margin-bottom:10px;
-color:#ff3d95;
+color:#ff2f92;
 text-shadow:0 0 12px rgba(255,255,255,.9);
 }
 
@@ -117,7 +117,8 @@ text-shadow:0 0 12px rgba(255,255,255,.9);
 .desc{
 font-size:16px;
 line-height:2;
-color:#ff5ca8;
+color:#c93d86;
+font-weight:bold;
 }
 
 /* الأزرار */
@@ -146,17 +147,20 @@ margin-top:12px;
 padding:14px;
 border-radius:20px;
 border:none;
-background:rgba(255,255,255,.35);
-color:#ff4f9d;
+background:rgba(255,255,255,.55);
+color:#5a2a4d;
 font-size:15px;
 cursor:pointer;
 transition:.25s;
 font-weight:bold;
+box-shadow:0 0 10px rgba(255,255,255,.3);
 }
 
 .option:hover{
 transform:scale(1.04);
 background:white;
+color:#ff3d95;
+box-shadow:0 0 18px rgba(255,255,255,.5);
 }
 
 /* صور الأنمي */
@@ -182,7 +186,7 @@ transform:translateY(-8px);
 
 /* رسالة النهاية */
 .final-box{
-background:rgba(255,255,255,.28);
+background:rgba(255,255,255,.35);
 padding:28px;
 border-radius:35px;
 width:100%;
@@ -204,14 +208,17 @@ opacity:1;
 }
 }
 
+/* نص الرسالة */
 #message{
-line-height:2.2;
+line-height:2.3;
 font-size:16px;
 white-space:pre-line;
-color:#ff4f9d;
+color:#2a2a2a;
 font-weight:bold;
+text-shadow:none;
 }
 
+/* glow */
 .glow{
 animation:glow 2s infinite alternate;
 }
@@ -225,6 +232,7 @@ text-shadow:0 0 25px #ff7edb;
 }
 }
 
+/* اسم إسراء */
 .name{
 font-size:22px;
 margin-bottom:10px;
@@ -280,15 +288,15 @@ src="https://i.pinimg.com/736x/d0/6e/f8/d06ef8d4d90f81b6a0dd6cb6806b631f.jpg">
 </h2>
 
 <button class="option" onclick="nextScreen('q2')">
-🌸 راحة وهدوء
+راحة وهدوء 🌸
 </button>
 
 <button class="option" onclick="nextScreen('q2')">
-✨ ضحك وفرحة
+ضحك وفرحة ✨
 </button>
 
 <button class="option" onclick="nextScreen('q2')">
-🎀 ناس قريبة
+ناس قريبة 🎀
 </button>
 
 </div>
@@ -308,15 +316,15 @@ src="https://i.pinimg.com/736x/89/6c/ea/896cea78d49c8cbf5df1b3b2f03bfb67.jpg">
 </h2>
 
 <button class="option" onclick="nextScreen('q3')">
-💖 الاهتمام
+الاهتمام 💖
 </button>
 
 <button class="option" onclick="nextScreen('q3')">
-🌷 الكلام الحلو
+الكلام الحلو 🌷
 </button>
 
 <button class="option" onclick="nextScreen('q3')">
-🦋 شخص يهتم فعلًا
+شخص يهتم فعلًا 🦋
 </button>
 
 </div>
