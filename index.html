@@ -1,200 +1,467 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>رسالة لهِبة</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>🎀 مفاجأة العيد 🎀</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial;
-  background: radial-gradient(circle, #1a1a1a, #000);
-  color: white;
-  text-align: center;
-  overflow: hidden;
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
 }
 
-/* البداية */
-#start { margin-top: 120px; }
-
-button {
-  padding: 12px 20px;
-  border-radius: 25px;
-  border: none;
-  background: #ff4d6d;
-  color: white;
-  cursor: pointer;
+body{
+background: linear-gradient(180deg,#ffd6f6,#ffeefe,#f7d8ff);
+overflow:hidden;
+height:100vh;
+color:#fff;
 }
 
-/* السؤال */
-#question { margin-top: 120px; }
-
-/* أزرار */
-.option-btn {
-  display: block;
-  margin: 10px auto;
-  padding: 12px 20px;
-  border-radius: 25px;
-  border: none;
-  background: rgba(255,255,255,0.1);
-  color: white;
-  cursor: pointer;
+/* خلفية */
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+overflow:hidden;
+z-index:-1;
 }
 
-/* الرسالة */
-.message-box {
-  margin-top: 90px;
-  padding: 25px;
-  width: 65%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 25px;
-  border: 2px solid #ff6f91;
-  background: rgba(255,105,135,0.1);
-  box-shadow: 0 0 25px rgba(255,100,150,0.4);
+/* العناصر الطايرة */
+.float{
+position:absolute;
+animation: floatUp linear infinite;
+opacity:.9;
+filter:drop-shadow(0 0 10px rgba(255,255,255,.5));
 }
 
-/* 🔥 مهم جدًا: طبقة المؤثرات */
-#fx {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
+@keyframes floatUp{
+0%{
+transform:translateY(100vh) scale(.6) rotate(0deg);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-20vh) scale(1.2) rotate(360deg);
+opacity:0;
+}
 }
 
-/* العناصر */
-.fx-item {
-  position: absolute;
-  animation: fall 5s linear forwards;
+/* الصفحات */
+.screen{
+display:none;
+height:100vh;
+padding:30px 20px;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+animation:fade .7s;
 }
 
-/* سقوط ناعم */
-@keyframes fall {
-  0% {
-    transform: translateY(100vh) scale(0.5);
-    opacity: 0;
-  }
-  20% { opacity: 1; }
-  100% {
-    transform: translateY(-10vh) scale(1.3);
-    opacity: 0;
-  }
+.active{
+display:flex;
 }
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* العنوان */
+.title{
+font-size:34px;
+margin-bottom:10px;
+text-shadow:0 0 15px rgba(255,255,255,.6);
+}
+
+/* النص */
+.desc{
+font-size:16px;
+line-height:1.9;
+max-width:330px;
+}
+
+/* الكارد */
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:30px;
+width:100%;
+max-width:360px;
+box-shadow:0 0 30px rgba(255,255,255,.3);
+border:2px solid rgba(255,255,255,.2);
+animation:cardFloat 3s ease-in-out infinite;
+}
+
+@keyframes cardFloat{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-6px);
+}
+}
+
+/* الأزرار */
+.btn{
+margin-top:18px;
+border:none;
+padding:14px 22px;
+border-radius:999px;
+background:#ff73c5;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 0 15px rgba(255,105,180,.5);
+}
+
+.btn:hover{
+transform:scale(1.08);
+background:#ff4db8;
+}
+
+/* الخيارات */
+.option{
+width:100%;
+margin-top:12px;
+padding:14px;
+border-radius:20px;
+border:none;
+background:rgba(255,255,255,.18);
+color:white;
+font-size:15px;
+cursor:pointer;
+transition:.25s;
+}
+
+.option:hover{
+transform:scale(1.04);
+background:rgba(255,255,255,.3);
+box-shadow:0 0 18px rgba(255,255,255,.3);
+}
+
+/* الشخصيات */
+.character{
+font-size:48px;
+margin-bottom:10px;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-10px);
+}
+}
+
+/* رسالة النهاية */
+.final-box{
+background:rgba(255,255,255,.18);
+padding:28px;
+border-radius:35px;
+width:100%;
+max-width:370px;
+backdrop-filter:blur(12px);
+box-shadow:0 0 35px rgba(255,255,255,.4);
+border:2px solid rgba(255,255,255,.25);
+animation:pop .8s;
+}
+
+@keyframes pop{
+from{
+transform:scale(.7);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+#message{
+line-height:2.2;
+font-size:16px;
+white-space:pre-line;
+}
+
+/* glow */
+.glow{
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px #fff;
+}
+to{
+text-shadow:0 0 25px #ff7edb;
+}
+}
+
 </style>
 </head>
-
 <body>
 
-<div id="start">
-  <h1>هِبة… 💌</h1>
-  <p>عندي لك شي بسيط</p>
-  <button onclick="start()">ابدئي</button>
+<!-- الخلفية -->
+<div class="bg" id="bg"></div>
+
+<!-- البداية -->
+<section class="screen active" id="start">
+
+<div class="card">
+
+<div class="character">🎀🧸🌸✨</div>
+
+<h1 class="title glow">
+مفاجأة عيد صغيرة
+</h1>
+
+<p class="desc">
+قبل لا يبدأ العيد...
+في شيء بسيط جدًا
+بس طالع من القلب 🤍
+</p>
+
+<button class="btn" onclick="nextScreen('q1')">
+🎁 افتحي المفاجأة
+</button>
+
 </div>
 
-<div id="quiz" style="display:none;">
-  <h2 id="q"></h2>
-  <div id="opts"></div>
+</section>
+
+<!-- سؤال 1 -->
+<section class="screen" id="q1">
+
+<div class="card">
+
+<div class="character">🎀 Hello Kitty 🎀</div>
+
+<h2 class="title">
+لو العيد كان شعور؟
+</h2>
+
+<button class="option" onclick="nextScreen('q2')">
+🌸 راحة وهدوء
+</button>
+
+<button class="option" onclick="nextScreen('q2')">
+✨ ضحك وفرحة
+</button>
+
+<button class="option" onclick="nextScreen('q2')">
+🧸 ناس قريبة
+</button>
+
 </div>
 
-<div id="final" style="display:none;">
-  <div class="message-box">
-    <h2>💖 رسالة لك يا هِبة</h2>
-    <p id="msg"></p>
-  </div>
+</section>
 
-  <!-- 🔥 المؤثرات هنا -->
-  <div id="fx"></div>
+<!-- سؤال 2 -->
+<section class="screen" id="q2">
+
+<div class="card">
+
+<div class="character">🩷 Kuromi 🩷</div>
+
+<h2 class="title">
+وش أكثر شي يسعدك؟
+</h2>
+
+<button class="option" onclick="nextScreen('q3')">
+💖 الاهتمام
+</button>
+
+<button class="option" onclick="nextScreen('q3')">
+🌷 الكلام الحلو
+</button>
+
+<button class="option" onclick="nextScreen('q3')">
+🦋 شخص يهتم فعلًا
+</button>
+
 </div>
+
+</section>
+
+<!-- سؤال 3 -->
+<section class="screen" id="q3">
+
+<div class="card">
+
+<div class="character">🐰 My Melody 🐰</div>
+
+<h2 class="title">
+جاهزة للمفاجأة الأخيرة؟
+</h2>
+
+<button class="btn" onclick="showFinal()">
+🎀 أكيد
+</button>
+
+</div>
+
+</section>
+
+<!-- النهاية -->
+<section class="screen" id="final">
+
+<div class="final-box">
+
+<div class="character">
+🌸💖🧸✨🦋
+</div>
+
+<h1 class="title glow">
+عيدك أحلى 🎀
+</h1>
+
+<p id="message"></p>
+
+</div>
+
+</section>
 
 <script>
 
-let i=0;
+/* انتقال */
+function nextScreen(id){
 
-function start(){
-  document.getElementById("start").style.display="none";
-  document.getElementById("quiz").style.display="block";
-  showQ();
+document.querySelectorAll('.screen')
+.forEach(s=>s.classList.remove('active'));
+
+document.getElementById(id)
+.classList.add('active');
+
 }
 
-const qs=[
-  {q:"وش يريح هِبة؟",o:["هدوء 🌙","ضحك 😂","كلام 💬"]},
-  {q:"لو زعلت؟",o:["أحد يسمع 🤍","أحد يضحكها ✨","اهتمام 🌸"]},
-  {q:"تحب؟",o:["الاهتمام 💖","الصدق 🌿","الطيبة ☁️"]}
-];
+/* النهاية */
+function showFinal(){
 
-let c=0;
+nextScreen('final');
 
-function showQ(){
-  let q=qs[c];
-  document.getElementById("q").innerHTML=q.q;
+startEffects();
 
-  let html="";
-  q.o.forEach(x=>{
-    html+=`<button class="option-btn" onclick="next()">${x}</button>`;
-  });
+let text=`كل عام وأنتِ ألطف صدفة
+دخلت حياتي 🤍
 
-  document.getElementById("opts").innerHTML=html;
-}
+قبل لا يبدأ العيد…
+حبيت أقول لك
+إن وجودك بالنسبة لي مو شيء عادي أبد ✨
 
-function next(){
-  c++;
-  if(c>=qs.length) final();
-  else showQ();
-}
+أنتِ من الناس
+اللي يخلون الأيام ألطف بدون ما يحسون،
+ومن الأشخاص اللي راحتهم تشبه الطمأنينة 🌸
 
-function final(){
-  document.getElementById("quiz").style.display="none";
-  document.getElementById("final").style.display="block";
+أهتم فيك بطريقة يمكن حتى أنا ما أستوعبها،
+وأفرح إذا شفتك بخير،
+وأزعل لو حسّيت إنك مو مرتاحة حتى لو ما قلتي شيء 💖
 
-  let text=`هِبة…
-وجودك مو شي عادي 🤍
+وجودك لحاله يغيّر الجو،
+وكلامك يخلّي اليوم أخف وأحلى 🦋
 
-أنتِ قريبة لقلبي كأنك أختي 🌸
-وأهتم فيك بدون ما أحس…
+وأحسك قريبة مني بطريقة مختلفة،
+كأنك أختي اللي ما جابتني الدنيا لها 🎀
 
-وأتمنى دايم أكون الشي
-اللي يريحك 💫`;
+أتمنى العيد هذا
+يدخلك فرحة تشبه قلبك الجميل،
+وضحكة ما تغيب،
+وأيام حلوة تليق بلطفك 🌷✨
 
-  type(text);
-  startFX(); // 🔥 تشغيل المؤثرات
+وأتمنى كل شيء بخاطرك
+يجيك بالطريقة اللي تسعدك فعلًا 🤍
+
+بس حبيت أقول لك…
+
+أنتِ مو شخص عابر أبد،
+ووجودك يفرق أكثر مما تتخيلين 💫
+
+وكل عام وأنتِ بخير يا ألطف ناس العيد 🎁💖`;
+
+typeText(text);
+
 }
 
 /* كتابة */
-function type(t){
-  if(i<t.length){
-    document.getElementById("msg").innerHTML+=t.charAt(i);
-    i++;
-    setTimeout(()=>type(t),30);
-  }
+let i=0;
+
+function typeText(text){
+
+if(i < text.length){
+
+document.getElementById("message")
+.innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(()=>{
+typeText(text)
+},32);
+
 }
 
-/* 🔥 المؤثرات المضمونة */
-function startFX(){
-
-  const fx=document.getElementById("fx");
-  const items=["💖","🌸","🦋","✨","🌹","💫"];
-
-  setInterval(()=>{
-    let el=document.createElement("div");
-    el.className="fx-item";
-    el.innerHTML=items[Math.floor(Math.random()*items.length)];
-
-    el.style.left=Math.random()*100+"vw";
-    el.style.fontSize=(18+Math.random()*25)+"px";
-
-    fx.appendChild(el);
-
-    setTimeout(()=>el.remove(),5000);
-  },150);
 }
+
+/* مؤثرات */
+function startEffects(){
+
+const bg=document.getElementById('bg');
+
+const items=[
+'💖','🌸','🦋','✨','🎀','🌷','🧸','🐰','⭐','💫'
+];
+
+setInterval(()=>{
+
+let el=document.createElement('div');
+
+el.className='float';
+
+el.innerHTML=
+items[Math.floor(Math.random()*items.length)];
+
+el.style.left=Math.random()*100+'vw';
+
+el.style.fontSize=
+(18 + Math.random()*28)+'px';
+
+el.style.animationDuration=
+(4 + Math.random()*4)+'s';
+
+bg.appendChild(el);
+
+setTimeout(()=>{
+el.remove();
+},8000);
+
+},150);
+
+}
+
+/* مؤثرات البداية */
+startEffects();
 
 </script>
-
-</body>
-</html>>
 
 </body>
 </html>
